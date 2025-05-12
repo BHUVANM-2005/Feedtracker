@@ -29,7 +29,11 @@ def init_db():
     # Add only SIDDARTHK as admin if not exists
     c.execute("SELECT * FROM admin WHERE username = 'SIDDARTHK'")
     if not c.fetchone():
-        c.execute("INSERT INTO admin (username, password) VALUES (?, ?)", ('SIDDARTHK', '12345'))
+                c.execute(
+            "INSERT INTO admin (username, password) VALUES (?, ?)",
+            ('SIDDARTHK', '12345')
+        )
+
 
     conn.commit()
     conn.close()
@@ -94,14 +98,22 @@ def handle_admin_login():
 
     conn = sqlite3.connect('feedback.db')
     c = conn.cursor()
-    c.execute("SELECT * FROM admin WHERE username = ? AND password = ?", (username, password))
+    c.execute(
+      "SELECT * FROM admin WHERE username = ? AND password = ?",
+      (username, password)
+    )
+
     admin = c.fetchone()
 
     if admin:
         c.execute('SELECT * FROM feedback')
         all_feedback = c.fetchall()
         conn.close()
-        return render_template('admin_dashboard.html', feedbacks=all_feedback)
+        return render_template(
+            'admin_dashboard.html',
+            feedbacks=all_feedback
+        )
+
     else:
         conn.close()
         return "Invalid admin credentials"
