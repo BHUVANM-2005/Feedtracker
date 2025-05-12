@@ -1,0 +1,157 @@
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("/static/rvuback.png");
+    background-size:auto;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: 100vh; /* Full viewport height */
+    color: white; /* Text color */
+}
+
+/* Optional: Add a translucent overlay if needed */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+/* Navigation bar */
+nav {
+    background-color: rgba(151, 148, 148, 0.811);
+    padding: 10px 10px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    display: flex;
+    align-items: center;
+}
+
+/* Flexbox container for logo + text */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo styling */
+.logo-img {
+    height: 50px; /* Adjusted size */
+    margin-right: 10px; /* Space between logo and text */
+}
+
+/* University text styling */
+h2 {
+    color: #d2b026;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 
+        1px 1px 0 black,  
+        -1px -1px 0 black,  
+        1px -1px 0 black,  
+        -1px 1px 0 black;
+}
+
+/* Heading styles */
+h4 {
+    text-align: left;
+    margin-left: 100px;
+    color: #000000;
+    font-size: 30px;
+}
+
+/* Form container styling */
+.feedback {
+    width: 40%;
+    margin-left: 100px;
+    padding: 30px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1); /* Transparent white */
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 30px;
+    width: 350px;
+    text-align: center ;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Input and select field styles */
+input, select {
+    width: 75%;
+    height: 40px;
+    font-size: 16px;
+    padding: 8px;
+    border: 2px solid black; /* Black border */
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    color: rgb(0, 0, 0); /* White text */
+    outline: none; /* Remove default focus outline */
+    transition: 0.3s ease-in-out;
+}
+
+/* Placeholder styling */
+input::placeholder, select {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* Focus effect */
+input:focus, select:focus {
+    background: rgba(255, 255, 255, 0.4); /* Slightly more visible on focus */
+    border-color: #ffcc00; /* Optional: Highlight border on focus */
+}
+
+
+/* Label styling */
+label {
+    font-size: 22px;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 
+        1px 1px 0 black,  
+        -1px -1px 0 black,  
+        1px -1px 0 black,  
+        -1px 1px 0 black;
+}
+
+/* Text input fields */
+input[type="text"] {
+    width: 75%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    backdrop-filter: blur(15px);
+}
+
+/* Submit button */
+button {
+    background-color: #d2b026;
+    color: white;
+    font-size: 18px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a78c20;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .feedback {
+        width: 80%;
+    }
+}

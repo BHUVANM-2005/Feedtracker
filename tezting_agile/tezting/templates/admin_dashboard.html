@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Feedbacks</h2>
+        {% for f in feedbacks %}
+            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                <strong>Student:</strong> {{ f[1] }}<br>
+                <strong>Professor:</strong> {{ f[2] }}<br>
+                <strong>Rating:</strong> {{ f[3] }}<br>
+                <strong>Comment:</strong> {{ f[4] }}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

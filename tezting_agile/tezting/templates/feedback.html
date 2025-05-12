@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            margin-left: 60px;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container select,
+        .container input,
+        .container textarea {
+            margin-bottom: 15px;
+            padding: 8px;
+            width: 250px;
+        }
+
+        .container button {
+            padding: 10px;
+            width: 150px;
+        }
+
+        h2 {
+            margin-left: 60px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Feedback Form</h2>
+    <div class="wrapper">
+        <div class="container">
+            <form action="/submit_feedback" method="POST">
+                <select name="professor" required>
+                    <option value="">Select Professor</option>
+                    <option value="Prof. John">Prof. John</option>
+                    <option value="Prof. Lisa">Prof. Lisa</option>
+                    <option value="Prof. Mark">Prof. Mark</option>
+                </select>
+
+                <input type="number" name="rating" min="1" max="5" placeholder="Rating (1-5)" required>
+                <textarea name="comment" placeholder="Enter your feedback" required></textarea>
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

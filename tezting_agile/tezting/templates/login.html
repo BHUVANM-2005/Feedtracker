@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .feedback {
+            margin-left: 60px;
+        }
+
+        .feedback form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feedback input {
+            margin-bottom: 15px;
+            padding: 8px;
+            width: 250px;
+        }
+
+        .feedback button {
+            padding: 10px;
+            width: 120px;
+        }
+
+        h4 {
+            margin-left: 60px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='rvulogo.png') }}" class="logo-img" alt="Logo">
+            <h2>RV University</h2>
+        </div>
+    </nav>
+
+    <h4>Student Login</h4>
+
+    <div class="wrapper">
+        <div class="feedback">
+            <form action="/login" method="post">
+                <label for="username">University ID</label>
+                <input type="text" id="username" name="username" placeholder="e.g. RVU1234" required>
+
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Siddarth K" required>
+
+                <label for="branch">Branch</label>
+                <input type="text" id="branch" name="branch" placeholder="e.g. CSE" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
