@@ -4,11 +4,12 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = 'secret123'
 
+
 # Database setup
 def init_db():
     conn = sqlite3.connect('feedback.db')
     c = conn.cursor()
-    
+
     # Feedback table
     c.execute('''CREATE TABLE IF NOT EXISTS feedback (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,8 +26,7 @@ def init_db():
         password TEXT
     )''')
 
-    # Add default admin if not exists
-       # Add only SIDDARTHK as admin if not exists
+    # Add only SIDDARTHK as admin if not exists
     c.execute("SELECT * FROM admin WHERE username = 'SIDDARTHK'")
     if not c.fetchone():
         c.execute("INSERT INTO admin (username, password) VALUES (?, ?)", ('SIDDARTHK', '12345'))
@@ -34,11 +34,14 @@ def init_db():
     conn.commit()
     conn.close()
 
+
 init_db()
+
 
 @app.route('/')
 def select_login():
     return render_template('select_login.html')
+
 
 @app.route('/student_login')
 def student_login():
@@ -50,13 +53,16 @@ def do_login():
     session['username'] = request.form['username']
     return redirect('/home')
 
+
 @app.route('/home')
 def home():
     return render_template('home.html')
 
+
 @app.route('/feedback')
 def feedback():
     return render_template('feedback.html')
+
 
 @app.route('/submit_feedback', methods=['POST'])
 def submit_feedback():
@@ -67,15 +73,19 @@ def submit_feedback():
 
     conn = sqlite3.connect('feedback.db')
     c = conn.cursor()
-    c.execute('INSERT INTO feedback (username, professor, rating, comment) VALUES (?, ?, ?, ?)',
-              (username, professor, rating, comment))
+    c.execute(
+        'INSERT INTO feedback (username, professor, rating, comment) VALUES (?, ?, ?, ?)',
+        (username, professor, rating, comment)
+    )
     conn.commit()
     conn.close()
     return render_template('success.html')
 
+
 @app.route('/admin')
 def admin_login():
     return render_template('admin_login.html')
+
 
 @app.route('/admin_login', methods=['POST'])
 def handle_admin_login():
@@ -95,6 +105,7 @@ def handle_admin_login():
     else:
         conn.close()
         return "Invalid admin credentials"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
