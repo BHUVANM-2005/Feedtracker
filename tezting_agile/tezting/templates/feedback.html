@@ -15,46 +15,93 @@
             flex: 1;
             display: flex;
             align-items: center;
+            justify-content: center; /* center horizontally */
         }
 
         .container {
-            margin-left: 60px;
+            width: 350px;
+            padding: 30px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
         }
 
         .container form {
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         .container select,
         .container input,
         .container textarea {
             margin-bottom: 15px;
-            padding: 8px;
-            width: 250px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .container textarea {
+            resize: none;
+            height: 80px;
         }
 
         .container button {
-            padding: 10px;
-            width: 150px;
+            padding: 12px;
+            width: 100%;
+            background-color: #d4af37;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
         }
 
         h2 {
-            margin-left: 60px;
-            margin-top: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        nav .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        nav h2 {
+            margin: 0;
         }
     </style>
 </head>
 <body>
+    <nav>
+        <div class="logo-container">
+            <img src="/static/rvulogo.png" class="logo-img" alt="Logo">
+            <h2>RV University</h2>
+        </div>
+    </nav>
+
     <h2>Feedback Form</h2>
+
     <div class="wrapper">
         <div class="container">
             <form action="/submit_feedback" method="POST">
                 <select name="professor" required>
                     <option value="">Select Professor</option>
-                    <option value="Prof. John">Prof. John</option>
-                    <option value="Prof. Lisa">Prof. Lisa</option>
-                    <option value="Prof. Mark">Prof. Mark</option>
+                    <option value="Prof. John">Prof. 1</option>
+                    <option value="Prof. Lisa">Prof. 2</option>
+                    <option value="Prof. Mark">Prof. 3</option>
                 </select>
 
                 <input type="number" name="rating" min="1" max="5" placeholder="Rating (1-5)" required>
