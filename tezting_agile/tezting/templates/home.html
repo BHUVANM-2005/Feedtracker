@@ -3,11 +3,43 @@
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="/static/style.css">
+    <style>
+    .container {
+    width: 350px;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+</style>
 </head>
 <body>
+    <nav>
+        <div class="logo-container">
+            <img src="/static/rvulogo.png" class="logo-img" alt="Logo">
+            <h2>RV University</h2>
+        </div>
+    </nav>
     <div class="container">
         <h2>Welcome, {{ session['username'] }}</h2>
+
         <a href="/feedback"><button>Give Feedback</button></a>
-    </div>
+        <br><br>
+        <a href="/report/classroom"><button>Report Classroom Issue</button></a>
+        <br><br>
+        <a href="/report/lab"><button>Report Lab Equipment Issue</button></a>
+        <br><br>
+        <a href="/report/other"><button>Report Other Institutional Service Issue</button></a>
+    <br><br>
+</div>
 </body>
 </html>
