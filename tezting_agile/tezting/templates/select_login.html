@@ -3,13 +3,9 @@
 <head>
     <title>Select Login</title>
     <link rel="stylesheet" href="/static/style.css">
+    
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 100px;
-            background-color: #f4f4f4;
-        }
+       
 
         h1 {
             color: #333;
@@ -30,11 +26,37 @@
         .button:hover {
             background-color:rgb(199, 177, 34);
         }
+
+        .container {
+    width: 350px;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    /* Centering logic */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+    
     </style>
 </head>
 <body>
+    <nav>
+        <div class="logo-container">
+            <img src="/static/rvulogo.png" class="logo-img" alt="Logo">
+            <h2>RV University</h2>
+        </div>
+    </nav>
+    <div class="container">
     <h1>Welcome to Feedback Portal</h1>
     <a href="/student_login" class="button">Student Login</a>
     <a href="/admin" class="button">Admin Login</a>
+    </div>
 </body>
 </html>
