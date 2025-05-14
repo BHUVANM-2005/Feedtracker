@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Lab Equipment Issue</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            padding: 30px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="/static/rvulogo.png" class="logo-img" alt="Logo">
+            <h2>RV University</h2>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Report Lab Equipment Issue</h2>
+        <form action="/submit/lab" method="post">
+            <label for="lab">Lab Name/Number:</label>
+            <input type="text" id="lab" name="lab" required>
+
+            <label for="equipment">Equipment Name:</label>
+            <input type="text" id="equipment" name="equipment" required>
+
+            <label for="issue">Issue Description:</label>
+            <textarea id="issue" name="issue" rows="5" required></textarea>
+<br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
