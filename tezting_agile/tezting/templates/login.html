@@ -4,44 +4,53 @@
     <title>Student Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-        }
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+    }
 
-        .wrapper {
-            flex: 1;
-            display: flex;
-            align-items: center;
-        }
+    .wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-        .feedback {
-            margin-left: 60px;
-        }
+    .feedback {
+        margin-left: 0; /* Removed margin to center it */
+    }
 
-        .feedback form {
-            display: flex;
-            flex-direction: column;
-        }
+    .feedback form {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center items horizontally */
+    }
 
-        .feedback input {
-            margin-bottom: 15px;
-            padding: 8px;
-            width: 250px;
-        }
+    .feedback input {
+        margin-bottom: 15px;
+        padding: 8px;
+        width: 250px;
+    }
 
-        .feedback button {
-            padding: 10px;
-            width: 120px;
-        }
+    .feedback button {
+        padding: 10px;
+        width: 120px;
+    }
+h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center; /* This centers the "Student Login" text */
+    font-size: 24px;
+}
 
-        h4 {
-            margin-left: 60px;
-            margin-top: 30px;
-        }
-    </style>
+    label {
+        margin-bottom: 5px;
+        text-align: center;
+    }
+</style>
+
 </head>
 <body>
     <nav>
@@ -50,11 +59,10 @@
             <h2>RV University</h2>
         </div>
     </nav>
-
-    <h4>Student Login</h4>
-
     <div class="wrapper">
+        
         <div class="feedback">
+            
             <form action="/login" method="post">
                 <label for="username">University ID</label>
                 <input type="text" id="username" name="username" placeholder="e.g. RVU1234" required>
