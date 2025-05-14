@@ -2,18 +2,88 @@
 <html>
 <head>
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="/static/style.css">
+    
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* Set plain white background */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            height: 100vh;
+            color: black;
+        }
+
+        /* Navigation bar */
+        nav {
+            background-color: rgba(151, 148, 148, 0.811);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        h2 {
+            color: #d2b026;
+            font-size: 30px;
+            font-weight: bold;
+            text-shadow: 
+                1px 1px 0 black,  
+                -1px -1px 0 black,  
+                1px -1px 0 black,  
+                -1px 1px 0 black;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .feedback-entry {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: left;
+            color: black;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
+
 <body>
+    <nav>
+        <div class="logo-container">
+            <img src="/static/rvulogo.png" class="logo-img" alt="Logo">
+            <h2>RV University</h2>
+        </div>
+    </nav>
+
     <div class="container">
         <h2>Student Feedbacks</h2>
+        <br>
+
         {% for f in feedbacks %}
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+            <div class="feedback-entry">
                 <strong>Student:</strong> {{ f[1] }}<br>
-                <strong>Professor:</strong> {{ f[2] }}<br>
-                <strong>Rating:</strong> {{ f[3] }}<br>
-                <strong>Comment:</strong> {{ f[4] }}
+                <strong>Category:</strong> {{ f[2] }}<br>
+                <strong>Rating (if given):</strong> {{ f[3] if f[3] is not none else 'N/A' }}<br>
+                <strong>Description:</strong> {{ f[4] }}
             </div>
+        {% else %}
+            <p>No feedback found.</p>
         {% endfor %}
     </div>
 </body>
